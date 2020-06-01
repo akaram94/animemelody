@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, re_path
 from shows import views
 from django.conf.urls import url
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +26,4 @@ urlpatterns = [
     re_path(r'^api/themes/$', views.themes_list),
     re_path(r'^api/shows/(?P<show>[\w\s\W]+)/$', views.show_finder),
     re_path(r'^api/themes/(?P<id>[\d]+)/$', views.theme_finder),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
