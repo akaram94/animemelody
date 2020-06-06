@@ -12,6 +12,7 @@ class Show(models.Model):
 
     mal_id = models.PositiveIntegerField("MyAnimeList ID", primary_key=True, unique=True, blank=False)
     name = models.CharField("Name", max_length=250, blank=False)
+    english_name = models.CharField("English Name", max_length=250, blank=True, default='', null=True)
     year = models.PositiveIntegerField("Year", blank=False, default=1960)
     season = models.CharField("Season", max_length=250, choices=SEASON_CHOICES, blank=False, default='winter')
 

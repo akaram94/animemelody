@@ -4,8 +4,8 @@ from .models import Show, Theme
 
 # Register your models here.
 class ShowAdmin(admin.ModelAdmin):
-    list_display = ('name', 'year', 'season')
-    search_fields = ['name']
+    list_display = ('name', 'english_name', 'year', 'season')
+    search_fields = ['name', 'english_name']
 
 class ThemeAdmin(admin.ModelAdmin):
     list_display = ('name', 'show', 'theme_type')

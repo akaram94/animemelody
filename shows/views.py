@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Q
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -29,7 +30,10 @@ def themes_list(request):
 
 @api_view(['GET'])
 def show_finder(request, show):
-    data = Show.objects.filter(name__icontains=show)
+    if len(show) > 1:
+        data = Show.objects.filter(Q(name__icontains=show) | Q(english_name__icontains=show))
+    else:
+        data = []
 
     serializer = ShowSerializer(data, context={'request': request}, many=True)
 

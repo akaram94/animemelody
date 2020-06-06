@@ -5,7 +5,7 @@ class ShowSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Show
-        fields = ('mal_id', 'name', 'year', 'season')
+        fields = ('mal_id', 'name', 'english_name', 'year', 'season')
 
 
 class ThemeSerializer(serializers.ModelSerializer):
